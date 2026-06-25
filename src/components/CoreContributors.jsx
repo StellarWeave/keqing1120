@@ -9,12 +9,12 @@ export default function CoreContributors() {
   return (
     <section id="contributors" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+        <div className="flex flex-col items-center text-center gap-4 mb-12">
           <div>
-            <h2 className="text-3xl md:text-5xl font-title mb-4 gradient-text transition-all duration-300 ease-out">
+            <h2 className="text-3xl md:text-5xl font-title mb-4 gradient-text transition-all duration-300 ease-out text-center">
               核心贡献者
             </h2>
-            <p className="text-center md:text-left text-gray-500 dark:text-gray-300 max-w-2xl transition-all duration-300 ease-out">
+            <p className="text-center text-gray-500 dark:text-gray-300 max-w-2xl transition-all duration-300 ease-out">
               感谢每一位为刻晴生日会付出心血的成员。
             </p>
           </div>

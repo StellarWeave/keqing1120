@@ -13,6 +13,6 @@ export const coreContributors = [
   { name: '三代', role: '三维动画与导播', avatar: '/images/b_bfa0f2a5341561b777411c5044f160e9.jpg', bilibili: 'https://space.bilibili.com/1418606' },
   { name: 'ink ECY', role: '剧场与同人作者', avatar: '/images/b_b1c20e6b96481e6271ac9cc1404061e1.jpg', bilibili: 'https://space.bilibili.com/1740529490' },
   { name: '无事发生之晴', role: '剪辑/七圣召唤', avatar: '', bilibili: '' },
-  { name: '', role: '', avatar: '', bilibili: '' },
+  { name: '玉衡星织', role: '数字影像工程师', avatar: '/images/026-06-25_220956_592.jpg', bilibili: 'https://space.bilibili.com/3493106890574497' },
   { name: '', role: '', avatar: '', bilibili: '' },
 ];

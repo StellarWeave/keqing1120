@@ -23,7 +23,7 @@ export default function HomePage() {
   }, [location]);
 
   return (
-    <>
+    <div className="animate-fade-in-up">
       <main>
         <HeroSection />
         <CoreContributors />
@@ -31,6 +31,6 @@ export default function HomePage() {
         <ContactPanel />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

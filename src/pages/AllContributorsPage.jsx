@@ -11,7 +11,7 @@ export default function AllContributorsPage() {
   );
 
   return (
-    <div className="min-h-screen bg-[var(--page-bg)] text-[var(--text-primary)] transition-colors duration-300">
+    <div className="min-h-screen bg-[var(--page-bg)] text-[var(--text-primary)] transition-colors duration-300 animate-fade-in-up">
       <main className="pt-28 pb-20 md:pt-36 md:pb-32">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="mb-10 md:mb-14">
@@ -30,7 +30,7 @@ export default function AllContributorsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
             {validContributors.map(({ name, role, avatar, bilibili }, i) => {
               const linked = hasLink(bilibili);
               const card = (

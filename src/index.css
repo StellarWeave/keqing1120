@@ -118,6 +118,34 @@ html {
   background-color: rgba(255, 255, 255, 0.72);
 }
 
+/* 浅色模式位于封面区时，导航栏使用暗色玻璃外观 */
+header.hero-mode .glass-card,
+html.light header.hero-mode .glass-card,
+html:not(.dark) header.hero-mode .glass-card,
+.light header.hero-mode .glass-card,
+:root:not(.dark) header.hero-mode .glass-card {
+  background-color: rgba(55, 55, 95, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+}
+header.hero-mode .glass-card:hover,
+html.light header.hero-mode .glass-card:hover,
+html:not(.dark) header.hero-mode .glass-card:hover,
+.light header.hero-mode .glass-card:hover,
+:root:not(.dark) header.hero-mode .glass-card:hover {
+  background-color: rgba(70, 70, 120, 0.75) !important;
+}
+
+/* 封面区深色导航栏下的文字/图标统一变亮（保留 Logo 渐变） */
+header.hero-mode a,
+header.hero-mode button,
+header.hero-mode svg {
+  color: rgba(255, 255, 255, 0.9);
+}
+header.hero-mode a:hover,
+header.hero-mode button:hover {
+  color: #ffffff;
+}
+
 /* 音乐可视化动画 */
 @keyframes music-bar {
   0%, 100% { height: 20%; }

@@ -8,6 +8,8 @@ import Glass from './Glass';
 import OptimizedImage from './OptimizedImage';
 import BilibiliIcon from './icons/BilibiliIcon';
 
+const HERO_BOTTOM_THRESHOLD = 80;
+
 const navLinks = [
   { id: 'home', label: '首页', to: '/' },
   { id: 'recruit', label: '招募信息', to: '/#recruit' },
@@ -30,10 +32,48 @@ const externalLinks = [
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMusicCardOpen, setIsMusicCardOpen] = useState(false);
+  const [isOverHero, setIsOverHero] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const { isPlaying, currentTrack } = useMusic();
   const musicRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // 浅色模式位于封面区时，导航栏切为深色外观
+  useEffect(() => {
+    const checkHero = () => {
+      const hero = document.getElementById('home');
+      if (!hero) {
+        setIsOverHero(false);
+        return;
+      }
+      setIsOverHero(hero.getBoundingClientRect().bottom > HERO_BOTTOM_THRESHOLD);
+    };
+
+    checkHero();
+    window.addEventListener('scroll', checkHero, { passive: true });
+    window.addEventListener('resize', checkHero);
+    return () => {
+      window.removeEventListener('scroll', checkHero);
+      window.removeEventListener('resize', checkHero);
+    };
+  }, []);
+
+  // 监听主题变化（含系统主题）
+  useEffect(() => {
+    const updateDark = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    updateDark();
+    const observer = new MutationObserver(updateDark);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  const heroMode = isOverHero && !isDark;
 
   // 点击外部关闭音乐卡片
   useEffect(() => {
@@ -72,7 +112,7 @@ export default function Navbar() {
   };
 
   return (
-    <>
+    <header className={heroMode ? 'dark hero-mode' : ''}>
       <nav className="fixed top-3 left-3 right-3 md:top-4 md:left-6 md:right-6 z-50">
         <Glass className="w-full shadow-lg shadow-black/5 dark:shadow-black/20" cornerRadius={16}>
           <div className="max-w-7xl mx-auto px-3 md:px-6">
@@ -172,7 +212,7 @@ export default function Navbar() {
                       className={`p-2 rounded-full transition-colors ${
                         isMusicCardOpen
                           ? 'bg-keqing-purple text-white'
-                          : 'bg-keqing-purple/10 hover:bg-keqing-purple/20 text-keqing-purple'
+                          : 'bg-keqing-purple/10 hover:bg-keqing-purple/20 text-keqing-purple dark:bg-white/10 dark:hover:bg-white/20 dark:text-white'
                       }`}
                     >
                       {isPlaying ? <Pause size={20} /> : <Play size={20} className="ml-0.5" />}
@@ -194,7 +234,7 @@ export default function Navbar() {
 
                 {/* 移动端菜单按钮 */}
                 <button
-                  className="md:hidden p-2 relative w-9 h-9 flex items-center justify-center"
+                  className="md:hidden p-2 relative w-9 h-9 flex items-center justify-center text-gray-800 dark:text-gray-200"
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   aria-label={isMobileMenuOpen ? '关闭菜单' : '打开菜单'}
                   aria-expanded={isMobileMenuOpen}
@@ -240,7 +280,7 @@ export default function Navbar() {
                 key={id}
                 to={to}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block w-full text-left py-2 px-4 rounded-lg transition-all duration-200 transform ${
+                className={`block w-full text-left py-2 px-4 rounded-lg transition-all duration-200 transform text-gray-800 dark:text-gray-200 ${
                   isMobileMenuOpen
                     ? 'opacity-100 translate-x-0'
                     : 'opacity-0 -translate-x-2'
@@ -253,7 +293,7 @@ export default function Navbar() {
 
             {navLinks.map(({ id, label, to }, i) => {
               const isRoute = to && !to.startsWith('/#');
-              const baseClass = `block w-full text-left py-2 px-4 rounded-lg transition-all duration-200 transform ${
+              const baseClass = `block w-full text-left py-2 px-4 rounded-lg transition-all duration-200 transform text-gray-800 dark:text-gray-200 ${
                 isMobileMenuOpen
                   ? 'opacity-100 translate-x-0'
                   : 'opacity-0 -translate-x-2'
@@ -291,7 +331,7 @@ export default function Navbar() {
                     rel="noopener noreferrer"
                     aria-label={label}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`flex items-center justify-center w-full py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200 transform ${
+                    className={`flex items-center justify-center w-full py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200 transform ${
                       isMobileMenuOpen
                         ? 'opacity-100 translate-x-0'
                         : 'opacity-0 -translate-x-2'
@@ -307,6 +347,6 @@ export default function Navbar() {
           </div>
         </Glass>
       </div>
-    </>
+    </header>
   );
 }

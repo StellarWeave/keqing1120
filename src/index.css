@@ -7,7 +7,7 @@
 @tailwind utilities;
 
 :root {
-  --page-bg: #f5f5f7;
+  --page-bg: #f5eef7;
   --card-bg: rgba(255, 255, 255, 0.55);
   --card-bg-hover: rgba(255, 255, 255, 0.72);
   --text-primary: #1d1d1f;

@@ -34,7 +34,7 @@ export default function ContactPanel() {
               </div>
               <button
                 onClick={copyQQ}
-                className="p-2 rounded-lg bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-colors"
+                className="p-2 rounded-lg bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-colors btn-glow"
                 title="复制群号"
               >
                 {copied ? <Check size={20} className="text-green-500" /> : <Copy size={20} />}

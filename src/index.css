@@ -7,7 +7,7 @@
 @tailwind utilities;
 
 :root {
-  --page-bg: #f5f5f7;
+  --page-bg: #efe6f3;
   --card-bg: rgba(255, 255, 255, 0.55);
   --card-bg-hover: rgba(255, 255, 255, 0.72);
   --text-primary: #1d1d1f;
@@ -118,6 +118,34 @@ html {
   background-color: rgba(255, 255, 255, 0.72);
 }
 
+/* 浅色模式位于封面区时，导航栏使用暗色玻璃外观 */
+header.hero-mode .glass-card,
+html.light header.hero-mode .glass-card,
+html:not(.dark) header.hero-mode .glass-card,
+.light header.hero-mode .glass-card,
+:root:not(.dark) header.hero-mode .glass-card {
+  background-color: rgba(55, 55, 95, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+}
+header.hero-mode .glass-card:hover,
+html.light header.hero-mode .glass-card:hover,
+html:not(.dark) header.hero-mode .glass-card:hover,
+.light header.hero-mode .glass-card:hover,
+:root:not(.dark) header.hero-mode .glass-card:hover {
+  background-color: rgba(70, 70, 120, 0.75) !important;
+}
+
+/* 封面区深色导航栏下的文字/图标统一变亮（保留 Logo 渐变） */
+header.hero-mode a,
+header.hero-mode button,
+header.hero-mode svg {
+  color: rgba(255, 255, 255, 0.9);
+}
+header.hero-mode a:hover,
+header.hero-mode button:hover {
+  color: #ffffff;
+}
+
 /* 音乐可视化动画 */
 @keyframes music-bar {
   0%, 100% { height: 20%; }
@@ -174,4 +202,164 @@ html {
   color: #ffffff;
   border: 1px solid rgba(184, 122, 247, 0.5);
   font-weight: 600;
+}
+
+/* ============================================================
+   微交互动效
+   ============================================================ */
+
+/* 按钮：悬停发光 + 轻微上浮 */
+.btn-glow {
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.45), rgba(218, 112, 214, 0.35));
+  filter: blur(12px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.25s ease;
+}
+.btn-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px -6px rgba(138, 43, 226, 0.45);
+}
+.btn-glow:hover::after {
+  opacity: 1;
+}
+.btn-glow:active {
+  transform: translateY(-1px);
+}
+
+/* 链接：紫色光从左滑入 */
+.link-glow {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.link-glow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(90deg, rgba(138, 43, 226, 0.18), rgba(218, 112, 214, 0.08));
+  border-radius: inherit;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+.link-glow:hover::before {
+  width: 100%;
+}
+.link-glow:hover {
+  color: #8a2be2;
+}
+.dark .link-glow:hover {
+  color: #c58bff;
+}
+
+/* 毛玻璃卡片：增强悬停上浮与光晕 */
+.glass-card {
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 16px 40px -8px var(--shadow-color),
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+    0 1px 0 rgba(255, 255, 255, 0.18) inset;
+}
+
+/* 图标容器：悬停时轻微旋转 + 放大 */
+.icon-hover {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease;
+}
+.group:hover .icon-hover,
+.icon-hover:hover {
+  transform: scale(1.12) rotate(-4deg);
+}
+
+/* ============================================================
+   星空背景：缓慢流动的紫色星云 + 闪烁漂移星星
+   ============================================================ */
+
+.starfield {
+  background: radial-gradient(ellipse at bottom, #1b0a2e 0%, #0a0a1a 60%, #050510 100%);
+}
+
+.starfield-nebula {
+  filter: blur(60px);
+  opacity: 0.75;
+  animation: nebula-drift linear infinite;
+  will-change: transform;
+}
+
+.starfield-star {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation:
+    twinkle ease-in-out infinite,
+    star-drift linear infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes nebula-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  20% {
+    transform: translate(10%, -7%) scale(1.1);
+  }
+  40% {
+    transform: translate(-6%, 5%) scale(0.95);
+  }
+  60% {
+    transform: translate(8%, 8%) scale(1.05);
+  }
+  80% {
+    transform: translate(-4%, -4%) scale(0.98);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes star-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-60px, -120px) scale(1);
+  }
+}
+
+/* ============================================================
+   倒计时：防止每秒更新时玻璃重绘闪烁
+   ============================================================ */
+
+/* 给每个倒计时卡片独立的 GPU 层，避免 backdrop-filter 每秒重绘 */
+.countdown-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
 }

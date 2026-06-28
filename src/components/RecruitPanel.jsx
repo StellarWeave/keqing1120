@@ -55,10 +55,10 @@ export default function RecruitPanel() {
           {recruits.map(({ icon: Icon, title, desc, skills }, i) => (
             <Glass
               key={i}
-              className="p-6 hover:transform hover:-translate-y-2 transition-all duration-300 group"
+              className="p-6 transition-all duration-300 group glass-card-hover"
               cornerRadius={16}
             >
-              <div className="w-12 h-12 rounded-xl bg-keqing-purple/10 dark:bg-keqing-purple/20 flex items-center justify-center mb-4 group-hover:bg-keqing-purple/20 dark:group-hover:bg-keqing-purple/30 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-keqing-purple/10 dark:bg-keqing-purple/20 flex items-center justify-center mb-4 group-hover:bg-keqing-purple/20 dark:group-hover:bg-keqing-purple/30 transition-colors icon-hover">
                 <Icon size={24} className="text-keqing-purple" />
               </div>
               <h3 className="text-xl font-bold mb-2">{title}</h3>

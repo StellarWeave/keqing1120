@@ -1,17 +1,17 @@
-# 刻晴生日会 2026
+# 刻晴生日会
 
 [![Version](https://img.shields.io/badge/version-v2.0.0-blue.svg)](https://github.com/玉衡一心定天衡/keqing-birthday-2026/releases/tag/v2.0.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 > 原神角色「刻晴」同人生日庆祝活动页面。
 >
-> 璃月七星玉衡星刻晴的生日即将到来，我们正在筹备一场盛大的庆典。无论你是才华横溢的创作者，还是热情似火的粉丝，都欢迎加入我们！
+> 玉衡星刻晴的生日即将到来，我们正在筹备一场盛大的庆典。无论你是才华横溢的创作者，还是热情似火的粉丝，都欢迎加入我们！
 
 [//]: # "可以在这里放一张网站首页截图"
 
 ## 项目简介
 
-本项目是 **2026 刻晴生日会** 的官方网站前端代码，基于 React + Vite + Tailwind CSS 构建，包含：
+本项目是 **刻晴生日会** 的网站前端代码，基于 React + Vite + Tailwind CSS 构建，包含：
 
 - 首页招募与倒计时
 - 历年生日贺图轮播
@@ -100,7 +100,7 @@ keqing-birthday-2026/
 
 欢迎提交 Issue 和 Pull Request。
 
-如果你也想加入 2026 刻晴生日会的创作，可以通过网站底部的联系方式找到我们。
+如果你也想加入刻晴生日会的创作，可以通过网站底部的联系方式找到我们。
 
 ## 版权声明
 
@@ -115,7 +115,7 @@ keqing-birthday-2026/
 
 ### v2.0.0
 
-2026 刻晴生日会网站正式版重构：
+刻晴生日会网站正式版重构：
 
 - 使用 React + Vite + Tailwind CSS 重新构建
 - 新增首页招募倒计时与历年贺图轮播

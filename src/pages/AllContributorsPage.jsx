@@ -18,7 +18,7 @@ export default function AllContributorsPage() {
           <div className="mb-10 md:mb-14">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-keqing-purple transition-colors mb-6"
+              className="link-glow inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-keqing-purple transition-colors mb-6 rounded-lg px-3 py-1.5 -ml-3"
             >
               <ArrowLeft size={18} />
               返回首页
@@ -37,7 +37,7 @@ export default function AllContributorsPage() {
               const card = (
                 <Glass
                   key={i}
-                  className={`p-4 md:p-5 text-center hover:transform hover:-translate-y-1.5 transition-all duration-300 group ${
+                  className={`p-4 md:p-5 text-center transition-all duration-300 group glass-card-hover ${
                     linked ? 'cursor-pointer' : ''
                   }`}
                   cornerRadius={16}

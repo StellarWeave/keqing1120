@@ -21,7 +21,7 @@ export default function CoreContributors() {
           </div>
           <Link
             to="/contributors"
-            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-keqing-purple hover:text-white bg-keqing-purple/10 hover:bg-keqing-purple rounded-lg transition-colors"
+            className="link-glow inline-flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-keqing-purple bg-keqing-purple/10 hover:bg-keqing-purple/20 rounded-lg transition-colors"
           >
             查看全部
             <ArrowRight size={16} />
@@ -34,7 +34,7 @@ export default function CoreContributors() {
             const card = (
               <Glass
                 key={i}
-                className={`p-6 text-center hover:transform hover:-translate-y-2 transition-all duration-300 group ${
+                className={`p-6 text-center transition-all duration-300 group glass-card-hover ${
                   linked ? 'cursor-pointer' : ''
                 }`}
                 cornerRadius={16}

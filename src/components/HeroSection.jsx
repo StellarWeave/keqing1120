@@ -1,4 +1,5 @@
 import CountdownTimer from './CountdownTimer';
+import Starfield from './Starfield';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -23,16 +24,8 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="min-h-screen relative overflow-hidden flex items-center">
-      {/* 背景渐变 */}
-      <div className="absolute inset-0 bg-gradient-to-br from-keqing-dark via-keqing-dark-light to-purple-950 z-0" />
-
-      {/* 粒子背景（简化版，用CSS） */}
-      <div className="absolute inset-0 z-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
-        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-pink-400 rounded-full animate-pulse delay-100" />
-        <div className="absolute bottom-1/4 left-1/2 w-1.5 h-1.5 bg-purple-300 rounded-full animate-pulse delay-200" />
-        <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-pink-300 rounded-full animate-pulse delay-300" />
-      </div>
+      {/* 流动星云星空背景 */}
+      <Starfield />
 
       <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-20 pt-24 min-w-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 items-center lg:items-start min-w-0 transition-all duration-300 ease-out">
@@ -58,7 +51,7 @@ export default function HeroSection() {
               <Glass className="inline-block w-full [@media(min-width:375px)]:w-auto" cornerRadius={999}>
                 <button
                   onClick={scrollToRecruit}
-                  className="w-full [@media(min-width:375px)]:w-auto px-8 py-3 bg-keqing-purple hover:bg-purple-600 rounded-full font-bold transition-all transform hover:scale-105 text-white"
+                  className="w-full [@media(min-width:375px)]:w-auto px-8 py-3 bg-keqing-purple hover:bg-purple-600 rounded-full font-bold text-white btn-glow"
                 >
                   立即加入
                 </button>
@@ -66,7 +59,7 @@ export default function HeroSection() {
               <Glass className="inline-block w-full [@media(min-width:375px)]:w-auto" cornerRadius={999}>
                 <button
                   onClick={scrollToContact}
-                  className="w-full [@media(min-width:375px)]:w-auto px-8 py-3 hover:bg-purple-900/30 rounded-full font-bold transition-all text-purple-300 hover:text-white"
+                  className="w-full [@media(min-width:375px)]:w-auto px-8 py-3 hover:bg-purple-900/30 rounded-full font-bold text-purple-300 hover:text-white btn-glow"
                 >
                   了解更多
                 </button>

@@ -1,17 +1,17 @@
 import { useCountdown } from '../hooks/useCountdown';
-import Glass from './Glass';
+import LiquidGlass from './LiquidGlass';
 
 function CountdownCard({ value, label }) {
   const text = String(value).padStart(2, '0');
   return (
-    <Glass className="countdown-card p-4 md:p-6 text-center min-w-[80px] md:min-w-[120px]" cornerRadius={16}>
+    <LiquidGlass className="countdown-card p-4 md:p-6 text-center min-w-[80px] md:min-w-[120px]" cornerRadius={16}>
       <div className="text-3xl md:text-5xl font-bold tabular-nums gradient-text">
         {text}
       </div>
       <div className="text-xs md:text-sm text-[var(--text-secondary)] tracking-wider mt-1">
         {label}
       </div>
-    </Glass>
+    </LiquidGlass>
   );
 }
 

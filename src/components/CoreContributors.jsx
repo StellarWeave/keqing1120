@@ -1,6 +1,6 @@
 import { User, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Glass from './Glass';
+import LiquidGlass from './LiquidGlass';
 import OptimizedImage from './OptimizedImage';
 import { coreContributors } from '../data/coreContributors';
 
@@ -32,7 +32,7 @@ export default function CoreContributors() {
           {coreContributors.map(({ name, role, avatar, bilibili }, i) => {
             const linked = hasLink(bilibili);
             const card = (
-              <Glass
+              <LiquidGlass
                 key={i}
                 className={`p-6 text-center transition-all duration-300 group glass-card-hover ${
                   linked ? 'cursor-pointer' : ''
@@ -57,7 +57,7 @@ export default function CoreContributors() {
                 <p className="text-sm text-[var(--text-secondary)]">
                   {role || '职位待补充'}
                 </p>
-              </Glass>
+              </LiquidGlass>
             );
 
             return linked ? (

@@ -5,6 +5,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Glass from './Glass';
+import LiquidGlass from './LiquidGlass';
 
 const slides = [
   { src: '/images/birthday-2021.jpg', alt: '2021年刻晴生日' },
@@ -69,7 +70,7 @@ export default function HeroSection() {
 
           {/* 右侧轮播 */}
           <div className="relative w-full max-w-full min-w-0 aspect-[4/5] md:aspect-square transition-all duration-300 ease-out">
-            <Glass className="absolute inset-0 p-1 max-w-full max-h-full" cornerRadius={24}>
+            <LiquidGlass className="absolute inset-0 p-1 max-w-full max-h-full" cornerRadius={24}>
               <div className="w-full h-full rounded-[20px] overflow-hidden">
                 <Swiper
                   modules={[Autoplay, Navigation]}
@@ -93,7 +94,7 @@ export default function HeroSection() {
                   ))}
                 </Swiper>
               </div>
-            </Glass>
+            </LiquidGlass>
           </div>
         </div>
 

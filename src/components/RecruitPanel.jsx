@@ -1,5 +1,5 @@
 import { Palette, Video, Music, FileText, Gamepad2, Users } from 'lucide-react';
-import Glass from './Glass';
+import LiquidGlass from './LiquidGlass';
 
 const recruits = [
   {
@@ -53,7 +53,7 @@ export default function RecruitPanel() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300 ease-out">
           {recruits.map(({ icon: Icon, title, desc, skills }, i) => (
-            <Glass
+            <LiquidGlass
               key={i}
               className="p-6 transition-all duration-300 group glass-card-hover"
               cornerRadius={16}
@@ -73,7 +73,7 @@ export default function RecruitPanel() {
                   </span>
                 ))}
               </div>
-            </Glass>
+            </LiquidGlass>
           ))}
         </div>
       </div>

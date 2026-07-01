@@ -225,9 +225,7 @@ export default function Navbar() {
                           : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
                       }`}
                     >
-                      <Glass cornerRadius={16}>
-                        <MusicPlayerCard />
-                      </Glass>
+                      <MusicPlayerCard />
                     </div>
                   </div>
                 )}

@@ -1,6 +1,6 @@
 import { Copy, Check } from 'lucide-react';
 import { useCallback, useState } from 'react';
-import Glass from './Glass';
+import LiquidGlass from './LiquidGlass';
 import Toast from './Toast';
 
 export default function ContactPanel() {
@@ -60,7 +60,7 @@ export default function ContactPanel() {
         onClose={hideToast}
       />
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <Glass className="p-6 md:p-10 max-w-2xl mx-auto" cornerRadius={24}>
+        <LiquidGlass className="p-6 md:p-10 max-w-2xl mx-auto glass-card-hover" cornerRadius={24}>
           <h2 className="text-3xl md:text-5xl font-title text-center mb-4 gradient-text">
             联系方式
           </h2>
@@ -85,7 +85,7 @@ export default function ContactPanel() {
               </button>
             </div>
           </div>
-        </Glass>
+        </LiquidGlass>
       </div>
     </section>
   );

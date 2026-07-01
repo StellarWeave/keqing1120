@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { User, ArrowLeft } from 'lucide-react';
-import Glass from '../components/Glass';
+import LiquidGlass from '../components/LiquidGlass';
 import OptimizedImage from '../components/OptimizedImage';
 import { allContributors } from '../data/allContributors';
 
@@ -35,7 +35,7 @@ export default function AllContributorsPage() {
             {validContributors.map(({ name, role, avatar, bilibili }, i) => {
               const linked = hasLink(bilibili);
               const card = (
-                <Glass
+                <LiquidGlass
                   key={i}
                   className={`p-4 md:p-5 text-center transition-all duration-300 group glass-card-hover ${
                     linked ? 'cursor-pointer' : ''
@@ -60,7 +60,7 @@ export default function AllContributorsPage() {
                   <p className="text-xs md:text-sm text-[var(--text-secondary)] line-clamp-2">
                     {role || '职位待补充'}
                   </p>
-                </Glass>
+                </LiquidGlass>
               );
 
               return linked ? (

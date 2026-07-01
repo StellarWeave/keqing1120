@@ -1,6 +1,6 @@
-import { useMusic } from '../context/useMusic';
 import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, ListMusic } from 'lucide-react';
-import Glass from './Glass';
+import { useMusic } from '../context/useMusic';
+import LiquidGlass from './LiquidGlass';
 import OptimizedImage from './OptimizedImage';
 
 export default function MusicPlayerCard({ compact = false }) {
@@ -22,7 +22,7 @@ export default function MusicPlayerCard({ compact = false }) {
 
   if (compact) {
     return (
-      <Glass className="p-3 w-64 sm:w-72" cornerRadius={16}>
+      <LiquidGlass className="p-3 w-64 sm:w-72" cornerRadius={16}>
         <div className="flex items-center gap-3">
           {/* 封面 */}
           <div className="relative w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-keqing-purple/10">
@@ -68,12 +68,12 @@ export default function MusicPlayerCard({ compact = false }) {
             </div>
           </div>
         </div>
-      </Glass>
+      </LiquidGlass>
     );
   }
 
   return (
-    <Glass className="p-4 w-full" cornerRadius={16}>
+    <LiquidGlass className="p-4 w-full" cornerRadius={16}>
       {/* 封面 */}
       <div className="relative rounded-xl overflow-hidden mb-4 bg-keqing-purple/10 aspect-square">
         {currentTrack.cover ? (
@@ -174,6 +174,6 @@ export default function MusicPlayerCard({ compact = false }) {
           className="flex-1 h-1 accent-keqing-purple"
         />
       </div>
-    </Glass>
+    </LiquidGlass>
   );
 }

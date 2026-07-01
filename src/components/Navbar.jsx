@@ -4,7 +4,7 @@ import ThemeToggle from './ThemeToggle';
 import { Menu, X, Music, Play, Pause } from 'lucide-react';
 import { useMusic } from '../context/useMusic';
 import MusicPlayerCard from './MusicPlayerCard';
-import Glass from './Glass';
+import LiquidGlass from './LiquidGlass';
 import OptimizedImage from './OptimizedImage';
 import BilibiliIcon from './icons/BilibiliIcon';
 
@@ -114,7 +114,7 @@ export default function Navbar() {
   return (
     <header className={heroMode ? 'dark hero-mode' : ''}>
       <nav className="fixed top-3 left-3 right-3 md:top-4 md:left-6 md:right-6 z-50">
-        <Glass className="w-full shadow-lg shadow-black/5 dark:shadow-black/20" cornerRadius={16}>
+        <LiquidGlass className="w-full" cornerRadius={16}>
           <div className="max-w-7xl mx-auto px-3 md:px-6">
             <div className="flex items-center justify-between h-14 min-w-0">
               {/* 左侧：Logo + 目录导航 */}
@@ -259,7 +259,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-        </Glass>
+        </LiquidGlass>
       </nav>
 
       {/* Mobile Menu */}
@@ -271,7 +271,7 @@ export default function Navbar() {
         }`}
         aria-hidden={!isMobileMenuOpen}
       >
-        <Glass className="w-full shadow-lg shadow-black/5 dark:shadow-black/20" cornerRadius={16}>
+        <LiquidGlass className="w-full" cornerRadius={16}>
           <div className="px-4 py-4 space-y-3">
             {rightNavLinks.map(({ id, label, to }, i) => (
               <Link
@@ -343,7 +343,7 @@ export default function Navbar() {
               </div>
             )}
           </div>
-        </Glass>
+        </LiquidGlass>
       </div>
     </header>
   );

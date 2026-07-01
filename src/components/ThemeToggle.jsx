@@ -1,6 +1,6 @@
 import { useTheme } from '../context/useTheme';
 import { Sun, Moon, Monitor } from 'lucide-react';
-import Glass from './Glass';
+import LiquidGlass from './LiquidGlass';
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -12,7 +12,7 @@ export default function ThemeToggle() {
   ];
 
   return (
-    <Glass className="inline-flex items-center gap-0.5 sm:gap-1 p-0.5 sm:p-1" cornerRadius={999}>
+    <LiquidGlass className="inline-flex items-center gap-0.5 sm:gap-1 p-0.5 sm:p-1" cornerRadius={999}>
       {modes.map(({ id, icon: Icon }) => (
         <button
           key={id}
@@ -27,6 +27,6 @@ export default function ThemeToggle() {
           <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>
       ))}
-    </Glass>
+    </LiquidGlass>
   );
 }

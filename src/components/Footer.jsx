@@ -19,7 +19,7 @@ export default function Footer() {
         </p>
         <div className="text-xs text-gray-400 dark:text-gray-400 space-y-1">
           <p>© 2026 Keqing Birthday Fan Project. All rights reserved.</p>
-          <p>版本号 v2.0.1</p>
+          <p>版本号 v2.0.2</p>
           <p>
             <a
               href="https://icp.gov.moe/?keyword=20261127"
